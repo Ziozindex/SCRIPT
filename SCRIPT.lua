@@ -31,18 +31,21 @@ local IOSPLOIT = Instance.new("ScreenGui")
 --tabs
 local Credits = Window:NewTab("CREDITS")
 local A = Credits:NewSection("CREDITS - DEVELOPER, SCRIPT DEV")
-local b = Credits:NewSection("IOSPLOIT HUB")
-local c = Credits:NewSection("HEAD DEV: luna_salt")
-local d = Credits:NewSection("CO DEV:Chxrgr")
-local e = Credits:NewSection("CREDITS TO ALL SCRIPT I USE!")
+local b = Credits:NewSection("HEAD DEV: luna_salt")
+local c = Credits:NewSection("CO DEV:Chxrgr")
+local d = Credits:NewSection("CREDITS TO ALL SCRIPT I USE!")
 
-local UsefullScript = Window:NewTab("UsefullScript")
-local A2Section = UsefullScript:NewSection("keyboard, shiftlock, etc")
-local aimlock = Window:NewTab("da hood script")
-local A3Section = aimlock:NewSection("da hood aimlocks and scripts")
+local info = Window:NewTab("info")
+local info1 = info:NewSection("This info does not include your private info")
+local Main= Window:NewTab("Main")
+local Main2 = Main:NewSection("Main")
 
-local Arsenal = Window:NewTab("Arsenal")
-local A4Section = Arsenal:NewSection("Aimbot, esp, guis")
+--info
 
-local OTHER = Window:NewTab("Other script")
-local A5Section = OTHER:NewSection("OTHER SCRIPTS")
+local player = game.Players.LocalPlayer
+local userInputService = game:GetService("UserInputService")
+local platform = userInputService:GetPlatform()
+
+local info1 = Section:NewLabel("Username: " .. player.Name)
+local info1 = Section:NewLabel("Device: " .. platform)
+local info1 = Section:NewLabel("Game: " .. game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId).Name)
