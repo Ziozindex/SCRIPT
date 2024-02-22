@@ -1,34 +1,31 @@
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/LUNAAR-SALT/Exploit/main/Kavo-ui-mobile.lua"))()
 local Window = Library.CreateLib("IOSPLOIT - IN DEVELOPMENT", "Private")
 
-local MainToggle = Instance.new("ScreenGui")
-local OpenCloseGUI = Instance.new("ScreenGui")
-local OpenClose = Instance.new("TextButton")
+-- Create a ScreenGui
+local screenGui = Instance.new("ScreenGui")
+screenGui.Name = "IOSPLOIT"
+screenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+screenGui.ResetOnSpawn = false
 
-OpenCloseGUI.Name = "OpenCloseGUI"
-OpenCloseGUI.Parent = game.CoreGui
+-- Create a TextButton for toggling the tutorial
+local toggleButton = Instance.new("TextButton")
+toggleButton.Name = "Toggle"
+toggleButton.Parent = screenGui
+toggleButton.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+toggleButton.Position = UDim2.new(0, 0, 0.454706937, 0)
+toggleButton.Size = UDim2.new(0, 90, 0, 38)
+toggleButton.Font = Enum.Font.SourceSans
+toggleButton.Text = "IOSPLOIT"
+toggleButton.TextColor3 = Color3.fromRGB(248, 248, 248)
+toggleButton.TextSize = 28.000
+toggleButton.Draggable = true
 
-OpenClose.Name = "Open/Close"
-OpenClose.Parent = OpenCloseGUI
-OpenClose.BackgroundColor3 = Color3.fromRGB(24, 24, 24)
-OpenClose.BackgroundTransparency = 0.2
-OpenClose.Position = UDim2.new(0.0109622413, 0, 0.0136186769, 0)
-OpenClose.Size = UDim2.new(0, 100, 0, 100)
-OpenClose.Font = Enum.Font.GothamBold -- Change the font to a more modern and bold font
-OpenClose.Text = "IOSPLOIT"
-OpenClose.TextColor3 = Color3.fromRGB(75, 0, 130)
-OpenClose.TextSize = 26
-OpenClose.MouseEnter:Connect(function()
-    -- Add a hover effect when the user hovers over the button
-    OpenClose.BackgroundColor3 =3 Color.fromRGB(75, 0, 130)
-    OpenClose.TextColor3 = Color3.fromRGB(255, 255, 255)
-end)
-OpenClose.MouseLeave:Connect(function()
-    -- Reset the button's appearance when the user stops hovering
-    OpenClose.BackgroundColor3 = Color3.fromRGB(24, 24, 24)
-    OpenClose.TextColor3 = Color3.fromRGB(75, 0, 130)
-end)
-OpenClose.MouseButton1Click:Connect(function()
+-- Add a corner to the toggle button
+local corner = Instance.new("UICorner")
+corner.Parent = toggleButton
+
+-- Connect toggle functionality
+toggleButton.MouseButton1Click:Connect(function()
     Library:ToggleUI()
 end)
 
