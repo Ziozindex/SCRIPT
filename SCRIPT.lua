@@ -1,32 +1,36 @@
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/LUNAAR-SALT/Exploit/main/Kavo-ui-mobile.lua"))()
-local Window = Library.CreateLib("IOSPLOIT - IN DEVELOPMENT", "DarkTheme")
+local Window = Library.CreateLib("IOSPLOIT - IN DEVELOPMENT", "Private")
 
-local IOSPLOIT = Instance.new("ScreenGui") 
- local TextLabel = Instance.new("TextButton") 
- local UIGradient = Instance.new("UIGradient") 
- local UITextSizeConstraint = Instance.new("UITextSizeConstraint") 
-  
- IOSPLOIT.Name = "IOSPLOIT" 
- IOSPLOIT.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui") 
- IOSPLOIT.ZIndexBehavior = Enum.ZIndexBehavior.Sibling 
- IOSPLOIT.ResetOnSpawn = false 
-  
- TextLabel.Parent = IOSPLOIT 
- TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255) 
- TextLabel.BackgroundTransparency = 1.000 
- TextLabel.BorderSizePixel = 0 
- TextLabel.Position = UDim2.new(-0.000772226602, 0, 0.0343558267, 0) 
- TextLabel.Size = UDim2.new(0.170134634, 0, 0.0700389072, 0) 
- TextLabel.Font = Enum.Font.GothamBold 
- TextLabel.Text = "IOSPLOIT" 
- TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255) 
- TextLabel.TextScaled = true 
- TextLabel.TextSize = 28.000 
- TextLabel.TextWrapped = true 
- TextLabel.TextXAlignment = Enum.TextXAlignment.Left 
- TextLabel.MouseButton1Down:Connect(function() 
-         Library:ToggleUI()
- end) 
+local MainToggle = Instance.new("ScreenGui")
+local OpenCloseGUI = Instance.new("ScreenGui")
+local OpenClose = Instance.new("TextButton")
+
+OpenCloseGUI.Name = "OpenCloseGUI"
+OpenCloseGUI.Parent = game.CoreGui
+
+OpenClose.Name = "Open/Close"
+OpenClose.Parent = OpenCloseGUI
+OpenClose.BackgroundColor3 = Color3.fromRGB(24, 24, 24)
+OpenClose.BackgroundTransparency = 0.2
+OpenClose.Position = UDim2.new(0.0109622413, 0, 0.0136186769, 0)
+OpenClose.Size = UDim2.new(0, 100, 0, 100)
+OpenClose.Font = Enum.Font.GothamBold -- Change the font to a more modern and bold font
+OpenClose.Text = "IOSPLOIT"
+OpenClose.TextColor3 = Color3.fromRGB(75, 0, 130)
+OpenClose.TextSize = 26
+OpenClose.MouseEnter:Connect(function()
+    -- Add a hover effect when the user hovers over the button
+    OpenClose.BackgroundColor3 =3 Color.fromRGB(75, 0, 130)
+    OpenClose.TextColor3 = Color3.fromRGB(255, 255, 255)
+end)
+OpenClose.MouseLeave:Connect(function()
+    -- Reset the button's appearance when the user stops hovering
+    OpenClose.BackgroundColor3 = Color3.fromRGB(24, 24, 24)
+    OpenClose.TextColor3 = Color3.fromRGB(75, 0, 130)
+end)
+OpenClose.MouseButton1Click:Connect(function()
+    Library:ToggleUI()
+end)
 
 --tabs
 local Credits = Window:NewTab("CREDITS")
