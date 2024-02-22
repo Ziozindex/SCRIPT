@@ -1,31 +1,37 @@
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/LUNAAR-SALT/Exploit/main/Kavo-ui-mobile.lua"))()
 local Window = Library.CreateLib("IOSPLOIT - IN DEVELOPMENT", "Private")
 
--- Create a ScreenGui
-local screenGui = Instance.new("ScreenGui")
-screenGui.Name = "MyGameGUI"
-screenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
-screenGui.ResetOnSpawn = false
+local ScreenGui = Instance.new("ScreenGui")
+ScreenGui.Name = "ScreenGui"
+ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+ScreenGui.ResetOnSpawn = false
 
--- Create a TextButton for toggling the tutorial
-local toggleButton = Instance.new("TextButton")
-toggleButton.Name = "Toggle"
-toggleButton.Parent = screenGui
-toggleButton.BackgroundColor3 = Color3.fromRGB(0, 120, 215)
-toggleButton.Position = UDim2.new(0, 0, 0.454706937, 0)
-toggleButton.Size = UDim2.new(0, 120, 0, 38)
-toggleButton.Font = Enum.Font.Gotham
-toggleButton.Text = "Toggle Tutorial"
-toggleButton.TextColor3 = Color3.fromRGB(255, 255, 255)
-toggleButton.TextSize = 18
-toggleButton.AutoButtonColor = false
+local Toggle = Instance.new("TextButton")
+Toggle.Name = "Toggle"
+Toggle.Parent = ScreenGui
+Toggle.BackgroundColor3 = Color3.fromRGB(60, 60, 60)
+Toggle.Position = UDim2.new(0, 10, 0.9, -50)
+Toggle.Size = UDim2.new(0, 120, 0, 50)
+Toggle.Font = Enum.Font.SourceSans
+Toggle.Text = "IOSPLOIT"
+Toggle.TextColor3 = Color3.fromRGB(248, 248, 248)
+Toggle.TextSize = 20
+Toggle.AutoButtonColor = false
 
--- Add a corner to the toggle button
-local corner = Instance.new("UICorner")
-corner.Parent = toggleButton
+local Corner = Instance.new("UICorner")
+Corner.Name = "Corner"
+Corner.Parent = Toggle
 
--- Connect toggle functionality
-toggleButton.MouseButton1Click:Connect(function()
+local Hover = Instance.new("UIHover")
+Hover.Parent = Toggle
+Hover.MouseEnter:Connect(function()
+    Toggle.BackgroundColor3 = Color3.fromRGB(70, 70, 70)
+end)
+Hover.MouseLeave:Connect(function()
+    Toggle.BackgroundColor3 = Color3.fromRGB(60, 60, 60)
+end)
+
+Toggle.MouseButton1Click:Connect(function()
     Library:ToggleUI()
 end)
 
